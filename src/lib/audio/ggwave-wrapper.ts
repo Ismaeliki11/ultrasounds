@@ -32,7 +32,7 @@ export const getGGWave = async (): Promise<{ module: GGWaveModule, id: number } 
 
         if (!module) throw new Error("Module creation failed");
 
-        ggwaveModule = module;
+        ggwaveModule = module as any;
 
         console.log("Initializing GGWave Instance...");
         const parameters = module.getDefaultParameters ? module.getDefaultParameters() : undefined;
@@ -45,7 +45,7 @@ export const getGGWave = async (): Promise<{ module: GGWaveModule, id: number } 
             ggwaveId = 0; // Fallback, though likely to fail if init was expected
         }
 
-        return { module: ggwaveModule, id: ggwaveId! };
+        return { module: ggwaveModule!, id: ggwaveId! };
     } catch (e) {
         console.error("Failed to load ggwave", e);
         return null;
