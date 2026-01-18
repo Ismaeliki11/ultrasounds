@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  // Adding empty turbopack config to allow custom webpack config in Next.js 16
+  experimental: {
+    turbo: {},
+  },
 };
 
 export default nextConfig;
