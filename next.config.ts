@@ -11,10 +11,9 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  // Adding empty turbopack config to allow custom webpack config in Next.js 16
-  experimental: {
-    turbo: {},
-  },
+  // Adding empty turbopack config as suggested by the Next.js 16 error message
+  // this acknowledges we are using custom webpack for the ggwave library fallbacks.
+  turbopack: {},
 };
 
 export default nextConfig;
